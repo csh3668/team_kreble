@@ -38,7 +38,18 @@
     			<a href="#" class="link_button">정보소개 바로가기</a>
     		</div>
     		<div class="info_wrap">
-    		
+    			<a href="#" class="commu_link">
+    				<b>커뮤니티test</b>
+    				<p>여러 사람들과 축구에 대해 이야기하고 싶다면?</p>
+    			</a>
+    			<a href="#" class="rent_link">
+    				<b>예약/대여</b>
+    				<p>축구시설을 대여하고 싶다면?</p>
+    			</a>
+    			<a href="#" class="shop_link">
+    				<b>쇼핑</b>
+    				<p>다양한 축구물품을 구하고 싶다면?</p>
+    			</a>
     		</div>
     	</div>
     </div>
@@ -115,13 +126,14 @@ css는 언제 걸고 데이터베이스도 연결해야하는데 언제 다하�
 PL구단들이 이강인 모니터링중이다
 말 많던데 떡밥 시원하게 정리할수 있지만
 여백이 없어 이 이상 적지 않겠다.
+최승혁 커밋
 </textarea>
     				</div>
     			</div>
     		</div>
     	</div>
     </div>
-    <div id="content3">
+        <div id="content3">
     	<div class="content_inner">
     		<div class="title_box">
     			<h3>예약/대여</h3>
@@ -144,9 +156,6 @@ PL구단들이 이강인 모니터링중이다
     				
     			</div>
     		</div>
-<!--     		<div class="rent_wrap wrap3"> -->
-    		
-<!--     		</div> -->
     	</div>
     </div>
     <div id="content4">

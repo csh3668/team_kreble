@@ -26,7 +26,7 @@ function back(){
 		        int comu_no = Integer.parseInt(request.getParameter("no"));
 		    	CommunityData cmd= data.commu_one(comu_no);
 		        %>
-			<div class="community2">
+			<div class="community">
 				<div class="community_inner">
 					<form name="change_change" action="community_changing.jsp">
 						<input type="hidden" name=comu_no value=<%= comu_no %>>

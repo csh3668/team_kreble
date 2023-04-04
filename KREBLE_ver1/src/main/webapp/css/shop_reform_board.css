@@ -57,7 +57,7 @@ article{
 	display: flex;
 	justify-content: space-between;
 }
-#art_no4 > div > input[type=button]{
+#art_no4 > div > a > input[type=button]{
 	width: 200px;
 	height: 40px;
 	background: none;

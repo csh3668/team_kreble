@@ -12,12 +12,11 @@
 <script src="js/Header_Footer_Aside_baseform.js"></script>
 <%
 	String after= request.getParameter("after").trim();
-	out.println(after);
 	if(after.equals("write")) {
 		%>
 		<script>
 		$(function(){
-			$("span").text("게시글 작성이 완료되었습니다");
+			$(".community_inner > span").text("게시글 작성이 완료되었습니다");
 		})
 		</script>
 		<%

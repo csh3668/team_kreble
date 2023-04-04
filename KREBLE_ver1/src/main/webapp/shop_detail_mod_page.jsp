@@ -16,6 +16,10 @@ String renum = request.getParameter("renum");
 <title>게시물수정</title>
     <link rel="stylesheet" type="text/css" href="css/Header_Footer_Aside_baseform.css">
     <link rel="stylesheet" type="text/css" href="css/shop_board_detail_view.css">
+	<link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@500&family=Jua&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@500&family=Jua&family=Nanum+Myeongjo:wght@800&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Cute+Font&display=swap" rel="stylesheet">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 	<script src="js/Header_Footer_Aside_baseform.js"></script>
 </head>
@@ -59,8 +63,14 @@ String renum = request.getParameter("renum");
 		
 			<article id="art_no2"><!-- 필수카테고리 -->
 				<div><!-- 박스모음 -->
-					<div> 의뢰자 : <input type="text" value="<%=w_id%>" name="w_id" readonly> </div>
 					<div> 작성일 : <input type="text" value="<%=w_date%>" name="w_date" readonly> </div>
+					<div> 체결 : 
+						<select name="w_trade">
+							<option>미체결</option>
+							<option>진행중</option>
+							<option>거래완료</option>
+						</select>
+					</div>
 				</div>
 				<div>
 					<div> 종류 : 
@@ -72,16 +82,6 @@ String renum = request.getParameter("renum");
 						</select>
 					</div>
 					<div> 수량 : <input type="number" value="<%=w_qunt %>" name="w_qunt" required> </div>
-				</div>
-				<div>
-					<div> 모델명 : <input type="text" value="<%=w_prd %>" name="w_prd" required> </div>
-					<div> 체결 : 
-						<select name="w_trade">
-							<option>미체결</option>
-							<option>진행중</option>
-							<option>거래완료</option>
-						</select>
-					</div>
 				</div>
 			</article>
 			

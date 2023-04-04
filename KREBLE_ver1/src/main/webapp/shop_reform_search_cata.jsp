@@ -6,8 +6,7 @@
 <% request.setCharacterEncoding("utf-8"); %>
 
 <%
-  String trade = request.getParameter("re_tr"); 
-  String title = request.getParameter("re_title"); 
+  String cata = request.getParameter("re_cata");  
 %>
 
 <!DOCTYPE html>
@@ -43,7 +42,7 @@
 	
 	<jsp:useBean id="jsp_ub2" class="use_data.Database" />
 	<% 
-	ArrayList<Shop_reform_db> al = jsp_ub2.shop_board_sc(trade,title);
+	ArrayList<Shop_reform_db> al = jsp_ub2.shop_board_casc(cata);
 	%>
 
 	

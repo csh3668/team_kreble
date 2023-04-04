@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <title>삭제하기</title>
 	<link rel="stylesheet" type="text/css" href="css/Header_Footer_Aside_baseform.css">
+	<link rel="stylesheet" type="text/css" href="css/community.css">
 </head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 <script src="js/Header_Footer_Aside_baseform.js"></script>
@@ -13,7 +14,7 @@
 <jsp:include page="Header_baseform.jsp"/>
 	<section>
 		<div class="section_inner">
-			<div class="community2">
+			<div class="community">
 				<div class="community_inner">
 					<%
 					String comu_no = request.getParameter("no");

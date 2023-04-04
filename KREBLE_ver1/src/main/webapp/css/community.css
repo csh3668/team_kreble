@@ -5,38 +5,44 @@ section {
  	min-height:calc(100vh - 270px);
  	overflow:auto;
 }
+
 section .section_inner {
 	height:auto;
  	overflow:auto;
+ 	padding:0 140px;
 }
 .community {
 	float:left;
-    width:calc(100% - 200px);
     height:auto;
-    min-height: 699px;
+    margin:0 auto;
     padding-top:80px;
     padding-bottom: 80px;
 }
-.community2 {
-	float:left;
-    width:1280px;
-    height:100%;
-    min-height: 699px;
-    padding-top:40px;
-    padding-bottom: 30px;
-}
 .community_inner {
 	position:relative;
-	width:800px;
+	width:1000px;
 	margin:0 auto;
 }
-
+.community_header {
+	width:100%;
+	height:180px;
+	background:url(../image/community_header.png) no-repeat center/cover;
+	margin:0 auto 40px;
+	padding-left:50px;
+	padding-top:50px;
+}
+.community_header h3 {
+	font-size:30px;
+	
+}
+.community_header span {
+	font-size:24px;
+	
+}
 table {
 	clear:both;
 	margin:20px auto 0;
-}
-table >tr {
-    border-bottom: 1px solid #5c6c90;
+	border-spacing:0 0;
 }
 .style1{
 	font-size: 12px;
@@ -49,14 +55,13 @@ table >tr {
     color: #777;
     text-align: center;
 }
-.bt_border {
-	border-bottom:1px solid #5c6c90;
-	height:25px;
+.bt_border > td {
+	border-bottom:1px solid #e6e8e5;
+	height:30px;
 }
 .bg1{
-	border-bottom: 1px solid #5c6c90;
-    color: #fff;
-    background-color: #717f9a;
+	border-bottom: 1px solid #e6e8e5;
+    background-color: #e6e8e5;
 }
 
 .serchtext{
@@ -74,22 +79,23 @@ textarae {
 	padding: 0 15px;	
 	
 }
+textarea {
+	resize:none;
+}
 
 .btn {
 	display:block;
-	width:80px;
 	height:40px;
 	margin-left:15px;
 	margin-right:15px;
-    background-color: #717f9a;
-    border-radius:5px;
     text-align:center;
-    color: #fff;
 	line-height:40px;
-    border:none;
+    width: 130px;
+	height: 40px;
+	background-color:buttonface;
+	border:none;
 }
 .btn > a {
-    color: #fff;
 	line-height:40px;
 }
 .btn > span {
@@ -99,15 +105,14 @@ textarae {
 .btn.btn_write {
 	float:right;
 	margin-right:0;
-	margin-bottom:30px;
 }
 .btn.btn_back {
 	float:right;
 }
 
 .head1{
-	text-align: left;
-    width: 60px;
+	text-align: center;
+    width: 100px;
     max-width: 60px;
     min-width: 60px;
     padding-left: 14px;
@@ -115,16 +120,16 @@ textarae {
     font-size: 12px;
 }
 .head2{
-	text-align: left;
-    width: 70px;
-    max-width: 83px;
-    min-width: 63px;
+	text-align: center;
+    width: 120px;
+    max-width: 85px;
+    min-width: 85px;
     padding-left: 14px;
     padding-right: 5px;
     font-size: 12px;
 }
 .head3{
-	width:500px;
+	width:600px;
 	text-align: center;
 	height: 14px;
     padding-top: 10px;
@@ -132,7 +137,7 @@ textarae {
 }
 .head5{
 	text-align: center;
-    width: 85px;
+    width: 140px;
     max-width: 85px;
     min-width: 85px;
     font-size: 12px;
@@ -178,6 +183,39 @@ textarae {
 	float:right;
 }
 
+.top_wrap {
+	width:100%;
+	height:43px;
+	margin:70px auto 30px;
+	padding-left:20px;
+	border:none;
+	border-top: 2px gray solid;
+	border-bottom: 1px gray solid;
+	background-color:#fbfbfb;
+}
+.cate {
+	float:left;
+	width:300px;
+	height:40px;
+}
+.cate li {
+	float:left;
+	text-align:center;
+}
+.cate li:after {
+	content:"|";
+	margin:10px;
+	font-size:20px;
+	line-height:40px;
+}
+.cate li:last-child:after {
+	content:none;
+}
+.cate li a {
+	line-height:40px;
+	font-size:18px;
+}
+
 .content_box {
 	width:100%;
 	height:auto;
@@ -197,14 +235,13 @@ textarae {
 	min-height:300px;
 	border:none;
 	outline:none;
-	resize:none;
 	font-size:16px;
 	
 }
 
 
 .list_box {
-	width:330px;
+	width:480px;
 	height:auto;
 	position:absolute;
 	bottom:-80px;
@@ -237,20 +274,35 @@ textarae {
 
 
 .search_box {
-	width:100%;
-	margin-top:50px;
+	width: 100%;
+	margin:70px auto 0;
+	border:none;
+	border-top: 1px gray solid;
+	border-bottom: 2px gray solid;
+}
+.search_box > form {
+	display: flex;
+	justify-content: space-between;
+	
 }
 #search_select {
-	width:90px;
-	height:40px;
-	float:left;
+	width: 110px;
+	height: 40px;
+	border:none;
+	border-bottom : 1px solid gray;
+	border-right: 1px solid gray;
 }
 .search_text {
-	width:calc(100% - 240px);
-	height:40px;
-	margin:0 20px;
+	width: 760px;
+	height: 40px;
+	border:none;
+	border-bottom : 1px solid gray;
+	padding-left: 10px;
 }
 .btn_search {
-	float:right;
+	width: 130px;
+	height: 40px;
+	border:none;
+	border-bottom : 1px solid gray;
 }
 

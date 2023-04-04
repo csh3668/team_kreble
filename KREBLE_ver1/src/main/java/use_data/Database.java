@@ -13,7 +13,7 @@ public class Database {
 	public void conn() throws Exception {//연결 메소드
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			con= DriverManager.getConnection("jdbc:mysql://localhost:3306/kreble?useUnicode=true&characterEncoding=utf8","root","tmd514107");
+			con= DriverManager.getConnection("jdbc:mysql://localhost:3306/kreble?useUnicode=true&characterEncoding=utf8","root","knight");
 			if(con == null){
 				throw new Exception("데이터베이스에 연결할 수 없습니다.");
 			}
@@ -229,6 +229,7 @@ public class Database {
 			diconn();
 		}
 	}
+
 	//  게시판 로드
 	  public ArrayList<Shop_reform_db> shop_board() throws Exception{
 		  ArrayList<Shop_reform_db> board = new ArrayList<Shop_reform_db>();
@@ -257,8 +258,8 @@ public class Database {
 		  
 		  return board;
 	  }
-	//  게시판 서치
-	  public ArrayList<Shop_reform_db> shop_board_sc(String re_cata, String re_trade, String re_title) throws Exception{
+//	  게시판 서치
+	  public ArrayList<Shop_reform_db> shop_board_sc(String re_trade, String re_title) throws Exception{
 		  ArrayList<Shop_reform_db> board = new ArrayList<Shop_reform_db>();
 		  if(re_title!="") {
 		  re_title.trim().toLowerCase();
@@ -266,50 +267,72 @@ public class Database {
 		  try{
 			  conn();
 			    if(con == null){
-			      throw new Exception("데이터베이스에 연결할 수 없습니다.");
-			    }
-			    stm = con.createStatement();
-			    
-			    StringBuilder commandBuilder = new StringBuilder();
-			    commandBuilder.append("select * from shop_reform");
-			    if(re_cata != "" || re_trade != "" || re_title != "") {
-			        commandBuilder.append(" where ");
-			    }
-			    if(re_cata!="") {
-			    	commandBuilder.append("shop_recata='"+re_cata+"'");
-			    }
-			    
-			    if(re_cata=="" && re_trade!="") {
-			    	commandBuilder.append("shop_retrade='"+re_trade+"'");
-			    }else if(re_cata!="" && re_trade!="") {
-			    	commandBuilder.append("and shop_retrade='"+re_trade+"'");
-			    }
-			    
-			    if((re_cata!="" || re_trade!="") && re_title!="") {
-			    	commandBuilder.append("and shop_retitle like '%"+re_title+"%'");
-			    }else if((re_cata=="" && re_trade=="") && re_title!="") {
-			    	commandBuilder.append("shop_retitle like '%"+re_title+"%'");
-			    }
-			    commandBuilder.append(";");
-			    
-			    String aa = commandBuilder.toString();
-			    ResultSet rs = stm.executeQuery(aa);
+				      throw new Exception("데이터베이스에 연결할 수 없습니다.");
+				    }
+				    stm = con.createStatement();
+				    
+				    StringBuilder commandBuilder = new StringBuilder();
+				    commandBuilder.append("select * from shop_reform");
+				    if(re_trade != "" || re_title != "") {
+				        commandBuilder.append(" where ");
+				    }
+				    if(re_trade!="") {
+				    	commandBuilder.append("shop_retrade='"+re_trade+"'");
+				    }
+				    
+				    if(re_trade!="" && re_title!="") {
+				    	commandBuilder.append("and shop_retitle like '%"+re_title+"%'");
+				    }else if(re_trade=="" && re_title!="") {
+				    	commandBuilder.append("shop_retitle like '%"+re_title+"%'");
+				    }
+				    commandBuilder.append(";");
+				    
+				    String aa = commandBuilder.toString();
+				    ResultSet rs = stm.executeQuery(aa);
+				    while(rs.next()) {
+				    	Shop_reform_db ob = new Shop_reform_db();
+				    	ob.setRenum(rs.getInt("shop_renum"));		    	
+				    	ob.setRecata(rs.getString("shop_recata"));		    	
+				    	ob.setRetitle(rs.getString("shop_retitle"));		    	
+				    	ob.setReid(rs.getString("shop_reid"));		    	
+				    	ob.setRetrade(rs.getString("shop_retrade"));		    	
+				    	ob.setRedate(rs.getString("shop_redate"));		    	
+				    	board.add(ob);
+				    }
 			    while(rs.next()) {
-			    	Shop_reform_db ob = new Shop_reform_db();
-			    	ob.setRenum(rs.getInt("shop_renum"));		    	
-			    	ob.setRecata(rs.getString("shop_recata"));		    	
-			    	ob.setRetitle(rs.getString("shop_retitle"));		    	
-			    	ob.setReid(rs.getString("shop_reid"));		    	
-			    	ob.setRetrade(rs.getString("shop_retrade"));		    	
-			    	ob.setRedate(rs.getString("shop_redate"));		    	
-			    	board.add(ob);
 			    }
 		  		}catch(Exception ignored){
 
 			  }finally{
 				  diconn();
 			  }
-		  
+		  return board;
+	  }
+	  // 카테고리 서치
+	  public ArrayList<Shop_reform_db> shop_board_casc(String cata) throws Exception{
+		  ArrayList<Shop_reform_db> board = new ArrayList<Shop_reform_db>();
+		  try{
+			  conn();
+			    if(con == null){
+				      throw new Exception("데이터베이스에 연결할 수 없습니다.");
+				    }
+				    stm = con.createStatement();
+				    ResultSet rs = stm.executeQuery("select * from shop_reform where shop_recata = '" + cata + "';");
+				    if(rs.next()) {
+				    	Shop_reform_db ob = new Shop_reform_db();
+				    	ob.setRenum(rs.getInt("shop_renum"));		    	
+				    	ob.setRecata(rs.getString("shop_recata"));		    	
+				    	ob.setRetitle(rs.getString("shop_retitle"));		    	
+				    	ob.setReid(rs.getString("shop_reid"));		    	
+				    	ob.setRetrade(rs.getString("shop_retrade"));		    	
+				    	ob.setRedate(rs.getString("shop_redate"));		    	
+				    	board.add(ob);
+				    }
+		  		}catch(Exception ignored){
+
+			  }finally{
+				  diconn();
+			  }
 		  return board;
 	  }
 	  
@@ -330,7 +353,6 @@ public class Database {
 			    board.setReid(rs.getString("shop_reid"));
 			    board.setRetrade(rs.getString("shop_retrade"));
 			    board.setRedate(rs.getString("shop_redate"));
-			    board.setReprd(rs.getString("shop_reprd"));
 			    board.setRetext(rs.getString("shop_retext"));
 			    }
 		  		}catch(Exception ignored){
@@ -348,7 +370,6 @@ public class Database {
 	  	  String id = aal.getReid();
 	  	  String trade = aal.getRetrade(); 
 	  	  int qunt = aal.getRequnt();
-	  	  String prd = aal.getReprd();
 	  	  String text = aal.getRetext();
 	  	  String date = aal.getRedate();
 	  	  try{
@@ -357,7 +378,7 @@ public class Database {
 	  			throw new Exception("데이터베이스에 연결할 수 없습니다.");
 	  		}
 	  		stm=con.createStatement();
-	  	    String command = String.format("insert into shop_reform values(%s,'%s','%s','%s','%s',%s,%s,'%s','%s')","default",cata,title,id,trade,qunt,date,prd,text);
+	  	    String command = String.format("insert into shop_reform values(default,'%s','%s','%s','%s',%s,%s,'%s')",cata,title,id,trade,qunt,date,text);
 	  		int rowNum = stm.executeUpdate(command);
 	  		if(rowNum<1){
 	  			throw new Exception("데이터를 DB에 입력할 수 없습니다.");
@@ -379,7 +400,7 @@ public class Database {
 				throw new Exception("데이터베이스에 연결할 수 없습니다.");
 			}
 			stm=con.createStatement();
-		    String command = String.format("update shop_reform set shop_recata = '"+aal.getRecata()+"',shop_retitle= '"+aal.getRetitle()+"',shop_retrade='"+aal.getRetrade()+"',shop_requnt = "+aal.requnt+",shop_reprd='"+aal.getReprd()+"',shop_retext = '"+aal.getRetitle()+"' where shop_renum="+aal.getRenum()+";");
+		    String command = String.format("update shop_reform set shop_recata = '"+aal.getRecata()+"',shop_retitle= '"+aal.getRetitle()+"',shop_retrade='"+aal.getRetrade()+"',shop_requnt = "+aal.requnt+",shop_retext = '"+aal.getRetitle()+"' where shop_renum="+aal.getRenum()+";");
 			int rowNum = stm.executeUpdate(command);
 			if(rowNum<1){
 				throw new Exception("데이터를 DB에 입력할 수 없습니다.");
@@ -420,17 +441,17 @@ public class Database {
 				throw new Exception("데이터베이스에 연결할 수 없습니다.");
 			}
 			stm=con.createStatement();
-			ResultSet rs= stm.executeQuery("select*from rent_review order by review_num desc;");
+			ResultSet rs= stm.executeQuery("select*from rent_review order by num desc;");
 			while(rs.next()){
 				ReviewData ob=new ReviewData();
-				ob.setNum(rs.getInt("review_num"));
-				ob.setId(rs.getString("user_id"));
-				ob.setTitle(rs.getString("review_title"));
-				ob.setPut(rs.getString("review_content"));
-				ob.setGood(rs.getInt("review_good"));
-				ob.setView(rs.getInt("review_readcount"));
-				ob.setDate(rs.getString("review_date"));
-				ob.setRating(rs.getInt("review_rating"));
+				ob.setNum(rs.getInt("num"));
+				ob.setId(rs.getString("id"));
+				ob.setTitle(rs.getString("title"));
+				ob.setPut(rs.getString("put"));
+				ob.setGood(rs.getInt("good"));
+				ob.setView(rs.getInt("view"));
+				ob.setDate(rs.getString("date"));
+				ob.setRating(rs.getInt("rating"));
 				reviewList.add(ob);
 			}
 		}finally {
@@ -447,16 +468,16 @@ public class Database {
 				throw new Exception("데이터베이스에 연결할 수 없습니다.");
 			}
 			stm=con.createStatement();
-			ResultSet rs= stm.executeQuery("select * from rent_review where review_num = '"+ num +"';");
+			ResultSet rs= stm.executeQuery("select * from rent_review where num = '"+ num +"';");
 			if(rs.next()){
-				list.setNum(rs.getInt("review_num"));
-				list.setId(rs.getString("user_id"));
-				list.setTitle(rs.getString("review_title"));
-				list.setPut(rs.getString("review_content"));
-				list.setGood(rs.getInt("review_good"));
-				list.setView(rs.getInt("review_readcount"));
-				list.setDate(rs.getString("review_date"));
-				list.setRating(rs.getInt("review_rating"));
+				list.setNum(rs.getInt("num"));
+				list.setId(rs.getString("id"));
+				list.setTitle(rs.getString("title"));
+				list.setPut(rs.getString("put"));
+				list.setGood(rs.getInt("good"));
+				list.setView(rs.getInt("view"));
+				list.setDate(rs.getString("date"));
+				list.setRating(rs.getInt("rating"));
 			}
 		}finally {
 			diconn();
@@ -500,7 +521,7 @@ public class Database {
 					throw new Exception("데이터베이스에 연결할 수 없습니다.");
 				}
 				stm=con.createStatement();
-				String command = String.format("update rent_review set review_title:='%s',review_content:='%s',review_rating:=%s where review_num=%s",titlein,putin,ratingin,numin);
+				String command = String.format("update rent_review set title:='%s',put:='%s',rating:=%s where num=%s",titlein,putin,ratingin,numin);
 				int rowNum = stm.executeUpdate(command);
 				if(rowNum<1){
 					throw new Exception("데이터를 DB에 입력할 수 없습니다.");
@@ -519,7 +540,7 @@ public class Database {
 					throw new Exception("데이터베이스에 연결할 수 없습니다.");
 				}
 				stm=con.createStatement();
-				String command = String.format("delete from rent_review where review_num = '"+ num +"';");
+				String command = String.format("delete from rent_review where num = '"+ num +"';");
 				int rowNum = stm.executeUpdate(command);
 				if(rowNum<1){
 					throw new Exception("데이터를 DB에 입력할 수 없습니다.");
@@ -538,7 +559,7 @@ public class Database {
 				throw new Exception("데이터베이스에 연결할 수 없습니다.");
 			}
 			stm=con.createStatement();
-			String command = String.format("update rent_review set review_readcount:= review_readcount + 1 where review_num = '"+ num +"';");
+			String command = String.format("update rent_review set view:= view + 1 where num = '"+ num +"';");
 			int rowNum = stm.executeUpdate(command);
 			if(rowNum<1){
 				throw new Exception("데이터를 DB에 입력할 수 없습니다.");
@@ -556,7 +577,7 @@ public class Database {
 					throw new Exception("데이터베이스에 연결할 수 없습니다.");
 				}
 				stm=con.createStatement();
-				String command = String.format("update rent_review set review_good:= review_good + 1 where review_num = '"+ num +"';");
+				String command = String.format("update rent_review set good:= good + 1 where num = '"+ num +"';");
 				int rowNum = stm.executeUpdate(command);
 				if(rowNum<1){
 					throw new Exception("데이터를 DB에 입력할 수 없습니다.");
@@ -566,5 +587,8 @@ public class Database {
 		  }
 	  
 	}
+
+
+
 
 }

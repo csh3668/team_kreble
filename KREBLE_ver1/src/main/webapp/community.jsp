@@ -18,54 +18,35 @@
 <jsp:include page="Header_baseform.jsp"/>
 	<section>
 		<div class="section_inner">
-			<aside>
-				<div class="aside_wrap">
-					<a href="mysquad.jsp">나만의 스쿼드</a>
-					<ul>
-		      </ul>
-		    </div>
-		    <div class="aside_wrap">
-					<a href="community.jsp?cate=all">유저커뮤니티</a>
-            <ul>
-            	<li><a href="community.jsp?cate=free">자유게시판</a></li>
-            	<li><a href="community.jsp?cate=debate">토론게시판</a></li>
-            	<li><a href="community.jsp?cate=qna">질문게시판</a></li>
-            	<li><a href="community.jsp?cate=info">정보게시판</a></li>
-            </ul>
-		    </div>
-		    <div class="aside_wrap">
-					<a href="#">승부예측</a>
-            <ul>
-            	<li><a href="#">승부예측</a></li>
-            	<li><a href="#">예측결과</a></li>
-            	<li><a href="#">참여내역</a></li>
-            </ul>
-		    </div>
-		        
-			</aside>
+			
 			<div class="community">
+				<div class="community_header">
+					<h3>유저커뮤니티</h3><br>
+					<span>전체게시판</span>
+				</div>
 				<div class="community_inner">
 					<jsp:useBean id="ud" class="use_data.Database"/>
 			
 				    <%@ page import="use_data.CommunityData"%>
 				    <%@ page import="java.util.ArrayList"%>
 				    <%String cate = request.getParameter("cate"); %>
-					<span class="btn btn_write"><a href="community_check.jsp?do=ck">글쓰기</a></span>
-				    <select name="cate" id="cate" class="category">
-				    	<optgroup label="카테고리">
-				    	<option value="all" <% if(cate.equals("all")){%>selected="selected"<%}%>>전체</option>
-						<option value="free" <% if(cate.equals("free")){%>selected="selected"<%}%>>자유</option>
-						<option value="debate" <% if(cate.equals("debate")){%>selected="selected"<%}%>>토론</option>
-						<option value="qna" <% if(cate.equals("qna")){%>selected="selected"<%}%>>질문</option>
-						<option value="info" <% if(cate.equals("info")){%>selected="selected"<%}%>>정보</option>
-						</optgroup>
-					</select>
+				    <div class="top_wrap">
+						<span class="btn btn_write"><a href="community_check.jsp?do=ck">글쓰기</a></span>
+						<ul class="cate">
+							<li><a href="community.jsp?cate=all">전체</a></li>
+							<li><a href="community.jsp?cate=free">자유</a></li>
+							<li><a href="community.jsp?cate=debate">토론</a></li>
+							<li><a href="community.jsp?cate=qna">질문</a></li>
+							<li><a href="community.jsp?cate=info">정보</a></li>
+						</ul>
+				    </div>
 				    <table>
 					    <tr class="bg1">
 					    	<th class="head1">글번호</th>
 					    	<th class="head2">작성자</th>
 					    	<th class="head2">카테고리</th>
 					    	<th class="head3">제목</th>
+					    	<th class="head5">조회수</th>
 					    	<th class="head5">작성일</th>
 					    </tr>
 					    <tbody class="style2">
@@ -81,50 +62,35 @@
 						if(search==""){
 							if(cate.equals("all")){
 								comu = ud.commu_all();
-							
-								for(int i=0; i<comu.size(); i++){					
-									out.println("<tr class='bt_border'><td>"+comu.get(i).getComu_num()+"</td>");
-									out.println("<td>"+comu.get(i).getId()+"</td>");
-									out.println("<td class='replace_cate'>"+comu.get(i).getCategory()+"</td>");
-									out.println("<td><a href='community_borde.jsp?no="+comu.get(i).getComu_num()+"'>"+comu.get(i).getComu_title()+"</a></td>");
-									
-									String wdt;
-									String writedate = comu.get(i).getComu_date();
-									Date wd = fm.parse(writedate);
-									long diff = now.getTime() - wd.getTime();
-									int daysDiff = (int) (diff / (24 * 60 * 60 * 1000));
-									SimpleDateFormat simpleDateFormat;
-									if(daysDiff<2){
-										simpleDateFormat = new SimpleDateFormat("HH:mm"); 
-									}
-									else {
-										simpleDateFormat = new SimpleDateFormat("MM-dd"); 
-									}
-									String strNowDate = simpleDateFormat.format(wd); 
-									out.println("<td>"+strNowDate +"</td>");
-								}
 							}
 							else {
 								comu = ud.commu_cate(cate);
-								
-								for(int i=0; i<comu.size(); i++){					
-									out.println("<tr class='bt_border'><td>"+comu.get(i).getComu_num()+"</td>");
-									out.println("<td>"+comu.get(i).getId()+"</td>");
-									out.println("<td class='replace_cate'>"+comu.get(i).getCategory()+"</td>");
-									out.println("<td><a href='community_borde.jsp?no="+comu.get(i).getComu_num()+"'>"+comu.get(i).getComu_title()+"</a></td>");
-									out.println("<td>"+comu.get(i).getComu_date() +"</td>");
-								}
 							}
 						}
 						else {
 							comu = ud.commu_search(search, search_text);
-							for(int i=0; i<comu.size(); i++){					
-								out.println("<tr class='bt_border'><td>"+comu.get(i).getComu_num()+"</td>");
-								out.println("<td>"+comu.get(i).getId()+"</td>");
-								out.println("<td class='replace_cate'>"+comu.get(i).getCategory()+"</td>");
-								out.println("<td><a href='community_borde.jsp?no="+comu.get(i).getComu_num()+"'>"+comu.get(i).getComu_title()+"</a></td>");
-								out.println("<td>"+comu.get(i).getComu_date() +"</td>");
+							
+						}
+						for(int i=0; i<comu.size(); i++){					
+							out.println("<tr class='bt_border'><td>"+comu.get(i).getComu_num()+"</td>");
+							out.println("<td>"+comu.get(i).getId()+"</td>");
+							out.println("<td class='replace_cate'>"+comu.get(i).getCategory()+"</td>");
+							out.println("<td><a href='community_borde.jsp?no="+comu.get(i).getComu_num()+"'>"+comu.get(i).getComu_title()+"</a></td>");
+							out.println("<td>"+comu.get(i).getCount()+"</td>");
+							String wdt;
+							String writedate = comu.get(i).getComu_date();
+							Date wd = fm.parse(writedate);
+							long diff = now.getTime() - wd.getTime();
+							int daysDiff = (int) (diff / (24 * 60 * 60 * 1000));
+							SimpleDateFormat simpleDateFormat;
+							if(daysDiff<2){
+								simpleDateFormat = new SimpleDateFormat("HH:mm"); 
 							}
+							else {
+								simpleDateFormat = new SimpleDateFormat("MM-dd"); 
+							}
+							String strNowDate = simpleDateFormat.format(wd); 
+							out.println("<td>"+strNowDate +"</td>");
 						}
 						%>
 						</tbody>
@@ -138,15 +104,16 @@
 						    	<option value="search_name" <% if(search.equals("search_name")){%>selected="selected"<%}%>>작성자</option>
 							</select>
 							<input type="text" name="search_text" class="search_text" <% if(search_text!=null){%>value="<%= search_text%>"<%}%>>
-							<input type="submit" value="검색" class="btn btn_search" >
+							<input type="submit" value="검색" class="btn_search" >
 						</form>
 					</div>
 				</div>
 				
 			</div>
+		</div>
 			
 			
-		</section>
+	</section>
 <jsp:include page="Footer_baseform.jsp"/>
 </body>
 </html>

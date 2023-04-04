@@ -33,7 +33,12 @@ $(function(){
 			location.replace("login.html");
 		} else{}
 	});
-
+	// $(".favorite_stadium > ul li").click(function(){
+	// 	var result= confirm("로그인이 필요한 서비스입니다.\n로그인 페이지로 이동하시겠습니까?")
+	// 	if (result==true) {
+	// 		location.replace("login.html");
+	// 	} else{}
+	// });
 	$('#plusbu').click(function(){
 		if (default_no==5){
 			console.log(default_no);

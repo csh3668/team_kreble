@@ -20,7 +20,7 @@ function back(){
 	<section>
 		<div class="section_inner">
 			
-			<div class="community2">
+			<div class="community">
 				<div class="community_inner">
 					<form name="new_write" action="community_writing.jsp">
 						<select name="cate" id="cate">

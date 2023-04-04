@@ -1,21 +1,3 @@
-@font-face {
-  font-family: 'GangwonEdu_OTFBoldA';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEdu_OTFBoldA.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-    font-family: 'NanumSquareNeo-Variable';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/NanumSquareNeo-Variable.woff2') format('woff2');
-    font-weight: normal;
-    font-style: normal;
-}
-@font-face {
-    font-family: 'IBMPlexSansKR-Regular';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/IBMPlexSansKR-Regular.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
 section {
     height:1580px;
 }
@@ -100,29 +82,28 @@ section .section_inner {
 .stadium_list .favorite_stadium {
     position:relative;
     clear:both;
-    height:80px;
+    height:60px;
     font-size: 13px;
-    font-family: 'IBMPlexSansKR-Regular';
+    font-family: 'Cute Font', cursive;
    	margin-top: 45px;
-   	font-weight: bold;
 }
 .stadium_list > span{
     display:inline-block;
+    width:170px;
     height:30px;
-    line-height: 50px;
+    line-height: 40px;
     color:#fff;
-    padding-left: 55px;
-    font-size: 25px;
-    font-family: 'IBMPlexSansKR-Regular';
-    font-weight:600;
+    padding-left: 50px;
+    font-size: 30px;
+    font-family: 'Cute Font', cursive;
 }
 .stadium_list .favorite_stadium ul{
     position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-45%);
-    width: 100%;
-    height: 60px;
+    top:0;
+    left:50%;
+    transform: translateX(-50%);
+    width:90%;
+    height:60px;
 }
 .stadium_list .favorite_stadium ul li{
     margin: 0 auto;
@@ -130,40 +111,41 @@ section .section_inner {
 }
 .stadium_list .favorite_stadium ul li a {
     color:#FFF;
-    font-size: 27px;
+    font-size: 35px;
     line-height: 60px;
     margin:0 20px;
-    font-family: 'IBMPlexSansKR-Regular';
 }
 .stadium_list .favorite_stadium ul li.select a{
     color:#5586eb;
 }
-#plusbu {
+.favorite_stadium #plusbu {
     position: absolute;
-    top: 42px;
-    right: 958px;
+    top:20px;
+    right:265px;
+    width:20px;
+    height:20px;
     background:url(../image/plus_bu.png) no-repeat center/contain;
-    background-size: 35px;
 }
- #minusbu {
+.favorite_stadium #minusbu {
     position: absolute;
-    top: 43px;
-    bottom: 370px;
-    left: 282px;
+    top:20px;
+    right:170px;
+    width:20px;
+    height:20px;
     background:url(../image/minus_bu.png) no-repeat center/contain;
-    background-size: 38px;
 }
 
-#plusbu:hover {
+.favorite_stadium #plusbu:hover {
     background-image: url(../image/plus_bu_hover.png);
 }
-#minusbu:hover{
+.favorite_stadium #minusbu:hover{
     background-image: url(../image/minus_bu_hover.png);
 }
 
 .stadium_list .local_stadium {
     clear: both;
-    padding-left: 100px;
+    height:80px;
+    padding-left: 80px;
 }
 .stadium_list .local_stadium .local {
     float:left;
@@ -186,7 +168,7 @@ section .section_inner {
     display: inline-block;
     height:40px;
     color: #666;
-    font-family: 'IBMPlexSansKR-Regular';
+    font-family: 'Cute Font', cursive;
     font-size: 22px;
 }
 .stadium_list .local_stadium .local a:hover{
@@ -200,8 +182,8 @@ section .section_inner {
     position:absolute;
     bottom:0;
     left:0;
-    width:100%;
-    height:133px;
+    width:900px;
+    height:90px;
     display:none;
 }
 .stadium_list .local_stadium .local.on ul {
@@ -209,7 +191,7 @@ section .section_inner {
 }
 .stadium_list .local_stadium .local ul li {
     float:left;
-    width:190px;
+    width:15.666%;
     height:56px;
     color:#fff;
 }
@@ -217,7 +199,7 @@ section .section_inner {
     color:#fff;
 }
 .stadium_list .local_stadium .local :first-child{
-    margin-left: 28px;
+    margin-left: 20px;
 }
 
 .stadium_name{

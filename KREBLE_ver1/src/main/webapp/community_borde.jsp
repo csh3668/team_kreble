@@ -14,31 +14,7 @@
 <jsp:include page="Header_baseform.jsp"/>
 	<section>
 		<div class="section_inner">
-			<aside>
-				<div class="aside_wrap">
-					<a href="mysquad.jsp">나만의 스쿼드</a>
-					<ul>
-		      </ul>
-		    </div>
-		    <div class="aside_wrap">
-					<a href="community.jsp">유저커뮤니티</a>
-            <ul>
-            	<li><a href="community.jsp">자유게시판</a></li>
-            	<li><a href="community.jsp">토론게시판</a></li>
-            	<li><a href="community.jsp">질문게시판</a></li>
-            	<li><a href="community.jsp">기타게시판</a></li>
-            </ul>
-		    </div>
-		    <div class="aside_wrap">
-					<a href="#">승부예측</a>
-            <ul>
-            	<li><a href="#">승부예측</a></li>
-            	<li><a href="#">예측결과</a></li>
-            	<li><a href="#">참여내역</a></li>
-            </ul>
-		    </div>
-		        
-			</aside>
+			
 			<div class="community">
 				<jsp:useBean id="ud" class="use_data.Database"/>
 				<%@ page import="use_data.CommunityData"%>
