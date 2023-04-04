@@ -1,0 +1,65 @@
+<web-app xmlns="http://java.sun.com/xml/ns/javaee" version="2.5"> 
+ <servlet>
+	<servlet-name>same</servlet-name>
+	<servlet-class>D20230306</servlet-class> 
+ </servlet>
+ <servlet-mapping>
+	<servlet-name>same</servlet-name> 
+	<url-pattern>/page</url-pattern>
+ </servlet-mapping>
+
+ <servlet>
+	<servlet-name>add</servlet-name>
+	<servlet-class>AdderServlet</servlet-class> 
+ </servlet>
+ <servlet-mapping>
+	<servlet-name>add</servlet-name> 
+	<url-pattern>/serv</url-pattern>
+ </servlet-mapping>
+
+  <servlet>
+	<servlet-name>day2</servlet-name>
+	<servlet-class>ServletEX</servlet-class> 
+ </servlet>
+ <servlet-mapping>
+	<servlet-name>day2</servlet-name> 
+	<url-pattern>/EX</url-pattern>
+ </servlet-mapping>
+
+   <servlet>
+	<servlet-name>day2-2</servlet-name>
+	<servlet-class>ServletEx2</servlet-class> 
+ </servlet>
+ <servlet-mapping>
+	<servlet-name>day2-2</servlet-name> 
+	<url-pattern>/likedog</url-pattern>
+ </servlet-mapping>
+
+   <servlet>
+	<servlet-name>member</servlet-name>
+	<servlet-class>Servletmember</servlet-class> 
+ </servlet>
+ <servlet-mapping>
+	<servlet-name>member</servlet-name> 
+	<url-pattern>/joinmem</url-pattern>
+ </servlet-mapping>
+
+    <servlet>
+	<servlet-name>mal</servlet-name>
+	<servlet-class>AnimalServlet</servlet-class> 
+ </servlet>
+ <servlet-mapping>
+	<servlet-name>mal</servlet-name> 
+	<url-pattern>/Animaltest</url-pattern>
+ </servlet-mapping>
+
+    <servlet>
+	<servlet-name>mal2</servlet-name>
+	<servlet-class>AniResultServlet</servlet-class> 
+ </servlet>
+ <servlet-mapping>
+	<servlet-name>mal2</servlet-name> 
+	<url-pattern>/AnimaltestResult</url-pattern>
+ </servlet-mapping>
+
+</web-app>

@@ -1,0 +1,265 @@
+/*공용*/
+
+li{
+	display: inline;
+}
+
+section {
+	height:1400px;
+}
+
+
+input {
+	padding-left: 15px;
+	font-size: 20px;
+}
+
+input[type=button]{
+	border-radius: 10px;
+	height: 40px;
+	background-color: black;
+	color: white;
+	padding:0;
+	margin-right: 2px;
+}
+
+input[type=text], input[type=password]{
+	border: 1px #d2d2d2 solid;
+	height: 50px;
+}
+
+.label_field{
+	width: 49%;
+	height: 40px;
+    padding-left:5px;
+	float: left;
+	font-size: 15pt;
+}
+
+.button_field{
+	width: 49%;
+	height: 40px;
+	float: right;
+	font-size: 15pt;
+}
+
+#name_body .button_field{
+	text-align: right;
+	margin-right: 37px;
+}
+
+
+.text_field{
+	width: 100%;
+	clear: left;
+	margin-bottom: 50px;
+}
+
+.user_input_field0{
+	width: 700px;
+	height: 40px;
+}
+
+form[name="input_name"] > .user_input_field1{
+	width: 600px;
+}
+
+form[name="input_name"] > select[name="select_box"]{
+	width: 95px;
+	padding-top: 5px;
+	float: left;
+}
+
+form > select[name="select_box"]{
+	width: 70px;
+	height: 50px;
+	border: 1px #d2d2d2 solid;
+	text-align: center;
+	float: left;
+}
+
+form > select[name="select_box1"]{
+	width: 210px;
+	height: 50px;
+	border: 1px #d2d2d2 solid;
+	padding-left: 15px;
+	float: left;
+	margin-bottom: 30px;
+}
+
+form > select[name="select_box2"]{
+	width: 230px;
+	height: 50px;
+	border: 1px #d2d2d2 solid;
+	float: left;
+}
+
+.user_input_field1{
+	width: 700px;
+	height: 50px;	
+	float: left;
+}
+
+.user_input_field2{
+	width: 190px;
+	height: 50px;	
+}
+
+.user_input_field3{
+	width: 170px;
+	height: 50px;	
+	float: left;
+}
+
+.user_input_field4{
+	width: 480px;	
+	margin-bottom: 90px;
+	float: left;
+}
+
+.size_only{
+	width: 10px;
+	height: 50px;
+	float: left;
+	line-height: 3;
+}
+
+.size_only1{
+	width: 20px;
+	height: 50px;
+	float: left;
+	line-height: 3;
+}
+
+/* body */
+body{ color: black;
+	position:relative;}
+	
+#div_body{
+	width: calc(100% - 200px);
+	margin:0 auto;
+}
+
+#div_body_center{
+	width: 65%;
+	margin: 0 auto;
+}
+
+#div_body_center > div{
+	margin: 35px 0 30px 0;
+}
+
+
+
+/* 타이틀 */
+#mem_title{
+	padding-top: 40px;
+	background-color: whitesmoke;
+}
+#mem_title div{
+	width: 700px;
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+.space_only:first-child{
+	background-color: white;
+}
+
+#mem_title .space_only{
+	height: 30px;
+}
+
+#mem_title .title_top_margin{
+	font-size: 25pt;
+	font-weight: bold;
+}
+
+#mem_title div li{
+	color: gray;
+	font-size: 20px;
+	border-bottom: 1px solid gray;
+}
+
+#mem_title div li:nth-child(2), #mem_title div li:nth-child(4){
+	border-bottom: none;
+}
+
+.color_black_on{
+	color: black;
+	font-weight: bold;
+}
+
+
+/* 아이디 */
+#id_body{
+	width: 100%;
+}
+
+.button_size{
+	width: 220px;
+	height: 30px;
+	float: right;
+	font-size: 14pt;
+	border: 1px #d2d2d2 solid;
+}
+
+
+/*연락처*/
+#call_body .input_call_comp{
+	float: right;
+}
+
+.button_field > form[name=input_call_comp]{
+	margin-left: 190px;
+}
+
+
+
+/*이메일*/
+.button_field > form > input[type=checkbox]{
+	margin-left: 128px;
+}
+
+
+/*성별*/
+#gender_body div form li{
+	font-size: 18pt;
+	margin: 0 50px 0 30px;
+}
+
+#gender_body input[type=radio] {
+	width:18px;
+	height:18px;
+}
+
+
+/*다음/초기버튼*/
+#end_body{
+	margin-top: 100px;
+	height: 100px;
+}
+
+#end_body #end_only_center ul li {
+    float:left;
+}
+
+#end_body input[type=button]{
+	width: 150px;
+	height: 50px;
+}
+
+#end_only_center{
+	width: 350px;
+	margin: 0 auto;
+}
+
+.button_size1{
+	width: 220px;
+	height: 50px;
+	font-size: 14pt;
+	border: 1px #d2d2d2 solid;
+	margin: 0 10px;
+}
+
+

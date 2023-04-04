@@ -1,0 +1,105 @@
+*{ margin:0; padding:0; }
+a{ text-decoration:none; }
+body{ color: black;
+padding: 20px}
+ul{
+	list-style:none ;
+	margin-top : 30px;
+} 
+li{display: inline;}
+
+
+/* body */
+#div_body{
+	width: 620px;
+	height: 400px;
+}
+#div_body_center{
+	width: 90%;
+	margin: 0 auto;
+}
+#label_main_title{
+	width: 620px;
+}
+.clear_float{
+	clear : left;
+}
+
+/*첫번째*/
+.label_title{
+	font-size: 20pt;
+	font-weight: bold;
+	width: 120px;
+	float: left;
+	margin-bottom: 30px;
+}
+
+.label_right_only{
+	width: 400px;
+	float: right;
+}
+
+.label_num{
+	width: 140px;
+	height: 40px;
+	float: left;
+}
+div > span{
+	width: 30px;
+	text-align: center;
+	line-height: 2.4;
+	float: left;
+}
+.textfield3{
+	width: 100px;
+	height: 40px;
+}
+
+/*두번쨰*/
+.textfield1{
+	float: left;
+	width: 220px;
+	height: 40px;
+	margin-bottom: 30px;
+}
+
+.label_addr{
+	float: left;
+	width: 50px;
+	height: 40px;	
+	font-size: 16pt;
+	line-height: 2;
+}
+
+/*세번째*/
+.label_addr_detail{
+	font-size: 20pt;
+	font-weight: bold;
+	margin-bottom: -30px;
+}
+
+/*네번째*/
+.textfield2{
+	width: 515px;
+	height: 40px;
+}
+
+/*입력/취소버튼*/
+input[type=button]{
+	width: 100px;
+	height: 40px;
+	font-size: 15pt;
+	margin: 20px;
+	background-color: black;
+	color: white;
+	border-radius: 7px;
+}
+
+.button_lastP{
+	margin-top: 60px;
+}
+
+.button_last > form{
+	width: 350px;
+	margin: 0 auto;
+}
